@@ -62,7 +62,9 @@ pipeline{
     post{ 
             success { 
                 sh "git status"
-                sh "git remote -v"
+                sh "git add ."
+                sh "git commit -m 'ci piple completed  , no: $BUILD_NUMBER ' "
+                sh "git push origin main"
             }
     }
 }
