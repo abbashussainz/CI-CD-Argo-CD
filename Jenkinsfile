@@ -61,10 +61,12 @@ pipeline{
 
     post{ 
             success { 
-                sh "git status"
-                sh "git add ."
-                sh "git commit -m 'ci piple completed  , no: $BUILD_NUMBER ' "
-                sh "git push origin main"
+                 script{
+                    git branch: 'main', url: 'https://github.com/vikash-kumar01/mrdevops_javaapplication.git' , credentials: 'git-auth'
+                    git add .
+                    git commit -m .
+                    git push origin main 
+                }
             }
     }
 }
