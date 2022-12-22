@@ -62,10 +62,12 @@ pipeline{
     post{ 
             success { 
                  script{
-                    git branch: 'main', url: 'https://github.com/vikash-kumar01/mrdevops_javaapplication.git' , credentials: 'git-auth'
+                    git branch: 'main', url: 'https://github.com/abbashussainz/CI-CD-Argo-CD' , credentialsId: 'git-auth'
+                    git remote set-url origin https://github.com/abbashussainz/CI-CD-Argo-CD
                     git add .
                     git commit -m .
-                    git push origin main 
+                    git push origin main
+git push origin master
                 }
             }
     }
