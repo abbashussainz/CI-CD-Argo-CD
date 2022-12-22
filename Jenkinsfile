@@ -62,6 +62,7 @@ pipeline{
     post{ 
         success {
             sh "git remote -v "
+            sh "git config --global user.name 'abbashussainz' "
             sh "git add ."
             sh "git commit -m 'trigger build' "
             sh "git push origin main"
