@@ -53,7 +53,7 @@ pipeline{
             steps{
                  sh "sed -i ' s/version.*/version: '$BUILD_NUMBER'/ ' ./HELM-CHART/Chart.yaml "
                 sh "helm package HELM-CHART "
-                sh "helm push helm-repo-{$BUILD_NUMBER}.tgz oci://266454083192.dkr.ecr.ap-northeast-1.amazonaws.com "
+                sh "helm push helm-repo-'$BUILD_NUMBER'.tgz oci://266454083192.dkr.ecr.ap-northeast-1.amazonaws.com "
             }
         }    
     }
