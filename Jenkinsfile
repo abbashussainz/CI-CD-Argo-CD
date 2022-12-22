@@ -61,14 +61,10 @@ pipeline{
 
     post{ 
         success {
-           withCredentials([usernamePassword(credentialsId: "git-auth", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                    script {
-                        env.encodedPass = URLEncoder.encode(PASS, "UTF-8")
-                    }
-                    sh 'git add .'
-                    sh 'git commit -m "build trigger" '
-                    sh "git push https://abbashussainz:${encodedPass}@github.com/abbashussainz/CI-CD-Argo-CD.git HEAD:main " 
-                    }
+            script{
+                    git url: "ssh://jenkins@git@github.com:abbashussainz/CI-CD-Argo-CD.git", credentialsId: 'git-key', branch: main
+            }
+           
 
         }
     }
