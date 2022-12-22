@@ -66,7 +66,7 @@ pipeline{
                         sh "git config user.name abbashussainz"
                         sh "git add . "
                         sh "git commit -m 'trigger build' "
-                        sh 'git push origin main https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/CI-CD-Argo-CD.git'
+                        sh 'git push origin main --force https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/CI-CD-Argo-CD.git'
                     }
 
         }
