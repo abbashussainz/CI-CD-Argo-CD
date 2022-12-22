@@ -61,11 +61,14 @@ pipeline{
 
     post{ 
         success {
-            sh "git remote -v "
-            sh "git config --global user.name 'abbashussainz' "
-            sh "git add ."
-            sh "git commit -m 'trigger build' "
-            sh "git push origin main"
+            withCredentials([usernamePassword(credentialsId: "git-auth", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh "git config user.email abbashussain.x@gmail.com"
+                        sh "git config user.name abbas"
+                        sh "git add . "
+                        sh "git commit -m 'trigger build' "
+                        sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/abbashussainz/CI-CD-Argo-CD.git'
+                    }
+
         }
     }
 }
