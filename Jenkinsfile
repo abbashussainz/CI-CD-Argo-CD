@@ -63,10 +63,10 @@ pipeline{
         success {
             withCredentials([usernamePassword(credentialsId: "git-auth", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh "git config user.email abbashussain.x@gmail.com"
-                        sh "git config user.name abbas"
+                        sh "git config user.name abbashussainz"
                         sh "git add . "
                         sh "git commit -m 'trigger build' "
-                        sh 'git push origin main https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/abbashussainz/CI-CD-Argo-CD.git'
+                        sh 'git push origin main https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/CI-CD-Argo-CD.git'
                     }
 
         }
