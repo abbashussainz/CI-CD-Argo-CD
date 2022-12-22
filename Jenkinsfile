@@ -61,6 +61,7 @@ pipeline{
 
     post{ 
         success {
+            sh "git remote add origin https://github.com/abbashussainz/CI-CD-Argo-CD"
             sh "git add ."
             sh "git commit -m 'trigger build' "
             sh "git push origin main"
