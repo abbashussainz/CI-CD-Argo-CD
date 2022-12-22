@@ -62,6 +62,7 @@ pipeline{
     post{ 
             success { 
                 sh "git status"
+                sh "git remote -v"
             }
     }
 }
