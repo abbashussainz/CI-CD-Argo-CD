@@ -60,15 +60,10 @@ pipeline{
     }
 
     post{ 
-            success { 
-                 script{
-                    git branch: 'main', url: 'https://github.com/abbashussainz/CI-CD-Argo-CD' , credentialsId: 'git-auth'
-                    git remote set-url origin https://github.com/abbashussainz/CI-CD-Argo-CD
-                    git add .
-                    git commit -m .
-                    git push origin main
-git push origin master
-                }
-            }
+        success {
+            sh "git add ."
+            sh "git commit -m 'trigger build' "
+            sh "git push origin main"
+        }
     }
 }
