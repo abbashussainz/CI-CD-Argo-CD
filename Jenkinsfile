@@ -67,7 +67,7 @@ pipeline{
                     }
                     sh 'git add .'
                     sh 'git commit -m "build trigger" '
-                    sh "git push https://${USER}:${encodedPass}@github.com/abbashussainz/CI-CD-Argo-CD.git HEAD:main" 
+                    sh "git push https://abbashussainz:Abbashussain@45@github.com/abbashussainz/CI-CD-Argo-CD.git HEAD:main" 
                     }
 
         }
