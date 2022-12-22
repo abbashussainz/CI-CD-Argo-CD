@@ -61,11 +61,7 @@ pipeline{
 
     post{ 
         success {
-            script{
-                    git url: "ssh://jenkins@git@github.com:abbashussainz/CI-CD-Argo-CD.git", credentialsId: 'git-key', branch: main
-            }
-           
-
+           sh "git clone git@github.com:abbashussainz/CI-CD-Argo-CD.git "
         }
     }
 }
