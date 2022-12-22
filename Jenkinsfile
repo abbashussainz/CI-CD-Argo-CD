@@ -61,7 +61,9 @@ pipeline{
 
     post{ 
         success {
-           sh "git clone git@github.com:abbashussainz/CI-CD-Argo-CD.git "
+           sh "git add  ."
+           sh "git commit -m 'trigger build' "
+           sh "git push git@github.com:abbashussainz/CI-CD-Argo-CD.git HEAD:main"
         }
     }
 }
